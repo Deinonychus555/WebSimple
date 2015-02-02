@@ -1,0 +1,242 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+#contenedor-de-pagina {
+    width: 900px;
+    background: transparent url(img/bg_main_withnav.jpg) top left repeat-y;
+    margin:auto;
+    font-family: "Trebuchet MS", arial, sans-serif;
+}
+
+
+/* Propiedades de la sección de la cabecera general */
+
+.titulo-cabecera {
+    height: 80px;
+    background-image: url(img/bg_head_top.jpg);
+}
+
+#imagen-cabecera {
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    z-index: 1;
+    margin: 22px 0 0 20px;
+    background-image: url(img/bg_head_top_logo.jpg);
+}
+
+#titulo-cabecera {
+    margin-top: 25px;
+    margin-left: 100px;
+    position: absolute;
+}
+
+.cabecera-centro-verde {
+    z-index: 1;
+    background-image: url(img/bg_head_middle.jpg);
+    height: 54px;
+    position: relative;
+}
+
+
+/* Propiedades de la sección del menú principal */
+
+.menu-principal {
+    width: 900px;
+    border: none;
+    background: #f4e9e9 url(img/bg_head_bottom_nav.jpg) no-repeat;
+    color: #4b4b4b;
+}
+
+.menu-principal ul {
+    list-style-type: none;
+    
+}
+
+.menu-principal ul li {
+    float: left;
+    position: relative;
+    z-index: 1;
+    border-right: solid 1px grey;
+}
+
+.menu-principal ul li a {
+    display: block;
+    height: 30px;
+    padding: 10px 16px 0px 16px;
+    font-weight: bold;
+    color: grey;
+}
+
+.menu-principal ul li ul { /* para que se vean las letras */
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    padding-left: 0px;
+}
+
+.menu-principal ul li ul li a {
+    display: block;
+    width: 10.0em;
+    height: auto;
+    margin-left: -1px;
+    padding: 4px 16px 4px 16px;
+    border-left: solid 1px #8e8e8e;
+    border-bottom: solid 1px #8e8e8e;
+    font-weight: normal;
+    color: #323232;
+}
+
+.limpiador { /*forzamos a la caja a mostrarse aún conteniendo elementos flotantes*/
+    padding: inherit; 
+    border-style: none; 
+    clear: both;
+}
+
+
+/* Clases usadas en JQuery */
+
+.gris-oscuro { /* para que se ponga de color gris oscuro al entrar */
+    background-color:  #d2d2d2;
+}
+
+.gris-claro {
+    background-color: #ededed;
+}
+
+.hidden {
+    opacity: 0;
+} 
+/* Fin clases JQuery */
+
+.home {
+    overflow:hidden;
+    width: 900px;
+    padding: 1.0em 0 1.0em 0;
+    background: white url(img/bg_head_breadcrumbs.jpg) repeat-y;
+}
+
+.home a{
+     color: #0985ef;
+}
+
+.home ul {
+    float: left;
+    width: 900px;
+    list-style: none;
+    padding: 0 0 0 15px;
+}
+
+.home ul li {
+    display: inline;
+    padding: 0 0 0 10px;
+    background: transparent url(img/bg_bullet_arrow.gif) no-repeat 0 50%;
+    color: #7d7d7d;
+}
+
+
+/* Propiedades de la sección del contenido */
+
+.principal {
+    width: 900px;
+    overflow: hidden;
+    background: transparent url(img/bg_main_withnav.jpg) top left repeat-y;
+}
+
+.principal-menu {
+    display: inline;
+    float: left;
+    width: 200px;
+    background: transparent url(img/bg_main_withnav.jpg) top left repeat-y;
+}
+
+.esquina-menu {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    z-index: 10;
+    margin: 0 0 0 190px;
+    background:url(img/bg_corner_topright.gif) no-repeat;
+}
+
+h1.secciones {
+    clear: both;
+    padding: 5px 20px 5px 20px;
+    background-color: #bebebe;
+    color: white;
+    font-size: 100%;
+}
+
+.principal-menu a {
+     color: #0985ef;
+}
+
+.principal-menu ul {
+    list-style-type: none;
+}
+
+
+
+.principal-menu ul li {
+    padding: 5px 20px 5px 20px;
+    font-size: 100%;
+    border-bottom: solid 1.5px grey;
+}
+
+.principal-contenido {
+    display: inline;
+    float: left;
+    width: 640px;
+    margin: 0 0 0 30px;
+    background: transparent;
+}
+
+.titulo-contenido{
+    font-size: 1.7em;
+}
+
+hr {
+   background-color: #d9d7d7;
+   height: 10px;
+   margin-top: 0.5em;
+   border-style: none;
+}    
+
+.principal-contenido h2 {
+    color: #0985ef;
+    margin: 1em 0em 0.5em 0em;
+}
+     
+.principal-contenido p {
+    font-family: "Trebuchet MS", arial, sans-serif;
+}
+ 
+.principal-contenido ol {
+    list-style: url(img/bg_bullet_full_1.gif);
+}    
+
+ ol.lista-color {
+    color: #0985ef;
+}
+
+.principal-contenido ol li{
+    margin-left: 1em;
+}  
+
+
+.footer{
+    margin-top: 2em;
+    width: 900px;
+    clear: both;
+    background: transparent url(img/bg_main_withnav.jpg) top left repeat-y;
+    padding: 1.0em 0 1.0em 0;
+    background: #e1e1e1 url(img/bg_foot.jpg) no-repeat;
+    text-align: center;
+}
