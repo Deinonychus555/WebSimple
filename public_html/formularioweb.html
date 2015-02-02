@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>
+			Ejemplo de Formulario Web
+		</title>
+		</head>
+                
+                <!-- Con la etiqueta 'title' muestramos su contenido al pasar por encima el ratón
+                 del elemento en cuestión -->
+                
+		<body>
+                    <h1>Ejemplo de Formulario Web</h1><br>
+                    (method="post" action="webforms.php")<br>
+			<form method="post" action="webforms.php">
+                            <table border="1" cellpadding="5">
+                                <tr>
+                                    <td title="Defecto">Defecto</td>
+                                    <td><input name="nombre" placeholder="autofocus" autofocus></td>
+                                </tr>
+                                <tr>
+                                    <td title="URL">URL</td>
+                                    <td><input name="url" type="url" >type="url"</td>
+				</tr>
+                                <tr>
+                                    <td title="Email">Email</td>
+                                    <td><input name="email" type="email"  >type="email"</td>
+                                </tr>
+                                <tr>
+                                    <tr>
+					<td title="Rango">Rango</td>
+                                        <td><input name="rango" type="range" min="0" max="100" step="5" value="40" >type="range" min="0" max="100" step="5" value="40"</td>
+                                    </tr>
+                                    <td title="Numero">Numero</td>
+                                    <td><input name="numero" type="number" min="0" max="100" step="5" value="40">type="number" min="0" max="100" step="5" value="40"</td>
+				</tr>
+                                <tr>
+                                    <td title="Fecha">Fecha</td>
+                                    <td><input name="fecha" type="date">type="date"</td>
+                                </tr>
+				<tr>
+                                    <td title="Semana">Semana</td>
+                                    <td><input name="semana" type="week">type="week"</td>
+                                </tr>
+				<tr>
+                                    <td title="Mes">Mes</td><td>
+                                    <input name="mes" type="month">type="month"</td>
+                                </tr>
+				<tr>
+                                    <td title="Hora">Hora</td>
+                                    <td><input name="hora" type="time">type="time"</td>
+                                </tr>
+				<tr>
+                                    <td title="Datetime" >Datetime</td>
+                                    <td><input name="datetime" type="datetime">"datetime"</td>
+				</tr>
+				<tr>
+                                    <td title="Local Datetime">Local Datetime</td>
+                                    <td><input name="datetimelocal" type="datetime-local">"datetime-local"</td>
+                        
+				</tr>
+                                <tr>
+                                    <td title="Local" >Color</td>
+                                    <td><input name="color" type="color">type="color"</td>
+                                </tr>
+                                <tr>
+                                    <td title="Consulta Busqueda" >Consulta Busqueda</td>
+                                    <td><input name="consulta" type="search">type="search"</td>
+                                </tr>
+                            </table>
+                            <input type="submit" value="Enviar" title="Enviar"  >type="submit"
+			</form>
+		</body>
+	</html>

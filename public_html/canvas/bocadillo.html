@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+function dibujarForma(){
+  // obtenemos el elemento canvas usando el DOM
+  var lienzo = document.getElementById('milienzo');
+
+  // Nos aseguramos que no se ejecute si canvas no es soportado
+  if (lienzo.getContext){
+
+    // usamos getContext para usar el canvas para dibujar
+    var ctx = lienzo.getContext('2d');
+
+   // Dibujar Formas
+    ctx.beginPath();
+    ctx.moveTo(75,25);
+    ctx.quadraticCurveTo(25,25,25,62.5);
+    ctx.quadraticCurveTo(25,100,50,100);
+    ctx.quadraticCurveTo(50,120,30,125);
+    ctx.quadraticCurveTo(60,120,65,100);
+    ctx.quadraticCurveTo(125,100,125,62.5);
+    ctx.quadraticCurveTo(125,25,75,25);
+    ctx.stroke();
+
+  } else {
+    alert('Necesitas un navegador que admita el uso del API Canvas de HTML 5.');
+  }
+}
+</script>
+</head>
+<body onload="dibujarForma();">
+   <canvas id="milienzo"></canvas>
+</body>
+</html>
