@@ -3,29 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/main.css" type="text/css" />
-    <script src="js/jquery.js" type="text/javascript"></script>  
-    <script src="js/main.js" type="text/javascript"></script> 
-    
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <!-- <script src="jquery.js" type="text/javascript"></script> -->  
+    <script src="main.js" type="text/javascript"></script>
     
     <!-- BOOTSTRAP -->
     
-    <!-- Latest compiled and minified CSS 
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    -->
-    
-    <!-- Optional theme 
+
+    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    -->
-    
-    <!-- Latest compiled and minified JavaScript 
+
+    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    -->
-    
-    
-    <title>Metaheuristics Research Project</title>
-    
-    
     <title>Metaheuristics Research Project</title>
     
 </head>
@@ -54,13 +45,16 @@
         
         <!-- menu principal horizontal-->
         <nav class="menu-principal">
-            <ul>
+            
+            <ul class="nav nav-pills">
+  
                 <li>
                     <a href=# title="Metaheuristics Overview">Metaheuristics Overview</a>
                 </li>
-                <li id="problems">
+                <li id="problems" role="presentation" class="dropdown">
                     <a href=# title="Problems">Problems</a>
-                    <ul>
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href=# title="Antibandwidth" >Antibandwidth</a>
                         </li>
@@ -93,9 +87,10 @@
                 <li>
                     <a href=# title="Multi-objective Problems">Multi-objective Problems</a>
                 </li>
-                <li id="contenidos" title="Contenidos">
+                <li id="contenidos" title="Contenidos" role="presentation" class="dropdown">
                     <a href=# title="Contenidos">Contenidos</a>
-                    <ul>
+                    <span class="caret"></span>
+                    <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="formularioweb.html" title="Formulario Web">Formulario Web</a>
                         </li>
@@ -119,9 +114,6 @@
                         </li>
                         <li>
                             <a href="canvas/miLienzo.html" title="Canvas">Canvas</a>
-                        </li>
-                        <li>
-                            <a href="efectosJS.html" title="EfectosJS">Efectos JS</a>
                         </li>
                      </ul>
                 </li>    
