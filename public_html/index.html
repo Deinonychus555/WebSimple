@@ -2,8 +2,24 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <!-- Etiqueta 'viewport', para visualizar correctamente la página en otros navegadores -->
+    
+    <!-- Propiedades:
+    Width: anchura virtual (emulada) de la pantalla o anchura del viewport.
+    Height: altura virtual de la pantalla o anchura del viewport.
+    Initial-scale: la escala inicial del documento.
+    Minimum-scale: la escala mínima que se puede poner en el documento.
+    Maximum-scale: la escala máxima configurable en el documento.
+    User-scalable: si se permite o no al usuario hacer zoom. -->
+
+    
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=2">
+    <!--  width=device-width conseguimos que el viewport sea igual a la anchura 
+    real de la pantalla del dispositivo, de modo que no se tratará de emular una
+    pantalla mayor de lo que realmente es y veremos los píxeles reales. -->
+    
     <link rel="stylesheet" href="css/main.css" type="text/css" />
+    
     <script src="js/jquery.js" type="text/javascript"></script>  
     <script src="js/main.js" type="text/javascript"></script> 
     

@@ -1,3 +1,61 @@
+//Tenemos la sentencia @media en la que podemos indicar entre paréntesis las 
+//condiciones que deben cumplirse para que se aplique esta media query. 
+//En este caso será para pantallas que tengan una anchura mínima de 500 píxeles. 
+@media (min-width: 500px) {
+    
+    h1{
+        margin: 1%;
+    }
+    
+    .estiloresponsive{
+        float: right;
+        padding-left: 15px; 
+    }
+    
+}
+
+// Esta regla se aplicaría para pantallas con una anchura máxima de 600 píxeles 
+//y cuando la orientación está en horizontal. 
+@media (max-width: 600px) and (orientation: landscape) {
+    
+    h1{
+        color: red;
+    }
+    
+}
+
+
+@media print {
+    
+    h1{
+        color: black;
+    }
+    
+}
+
+// Esta regla aplicaría en dispositivos de tipo televisión y cuya resolución 
+//minima de anchura sea de 1200 píxeles. 
+@media tv and (min-width: 1200px){
+    
+    h1{
+        margin: 10%;
+    }
+    
+}
+
+
+//Este mediaquery servirá para pantallas de minimas dimensiones 600 píxel 
+//y también para todos aquellos dispositivos handheld que estén en posición vertical. 
+@media (min-width: 600px),  handheld and (orientation: portrait) {
+    
+    h1{
+        color: green;
+    }
+    
+}
+
+
+
 * {
     padding: 0;
     margin: 0;
