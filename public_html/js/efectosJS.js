@@ -82,6 +82,17 @@ $(function(){
          $("textarea").removeClass("hidden");
          $("textarea").val(texto);
      })
+     
+     $("#input_number").click(function(){
+         
+         var number=NaN;
+         // isNan() solo acepta tipo Number
+         while(isNaN(parseInt(number))){
+             number=window.prompt("Introduce un número", "Ej: 3");
+         }
+         
+         $("this , .input_number").val(number);
+     })
     
     
 })  ;  // ; al final
