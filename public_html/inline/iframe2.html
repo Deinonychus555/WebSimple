@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>
+ 				&lt;iframe&gt; Editable
+			</title>
+            <script src="../js/jquery.js" type="text/javascript"></script>          
+            <script type="text/javascript">
+                 function cargador(){
+                                    window.alert("HOLA");
+                                }
+                $(function(){
+				
+                               
+                                
+                                $(".body").load(function(){
+                                   window.alert("Bienvenido a iframe"); 
+                                })
+                                
+                                $(".botonIframe").click(function(){
+                                        
+                                    var fuente=$(this).val();
+                                    switch (fuente){
+                                        case "Genbeta dev": $("#contenido").attr("src","http://www.genbetadev.com");break;
+                                        case "EfectosJS": $("#contenido").attr("src","../efectosJS.html");break;
+                                        case "Formulario web": $("#contenido").attr("src","../formularioweb.html");break;
+                                        case "Div": $("#contenido").attr("src","div.html");break;
+                                        case "Iframe": $("#contenido").attr("src","iframe.html");break;
+                                        case "Historial": $("#contenido").attr("src","../historial.html");break;
+                                        case "Arrastrar y soltar": $("#contenido").attr("src","../arrastrarysoltar.html");break;
+                                        case "Audio": $("#contenido").attr("src","audio_html5.html");break;
+                                        case "Video": $("#contenido").attr("src","video_html5.html");break;
+                                    }        
+                                })
+                                
+                               
+				
+				
+                                function retroceder() {
+                                     history.go(-1);
+                                 } 
+                                 
+                                window.addEventListener("cargador", onload, false); 
+				
+                });	
+	        </script>
+			
+		</head>
+                <body onload="cargador()">
+				<h1> &lt;iframe src="http://www.genbetadev.com/"&gt; Editable</h1>
+				<div>
+                                    <input  class="botonIframe" type="button" value="Genbeta dev">
+                                    <input  class="botonIframe" type="button" value="EfectosJS">
+                                    <input  class="botonIframe" type="button" value="Formulario web">
+                                    <input  class="botonIframe" type="button" value="Div">
+                                    <input  class="botonIframe" type="button" value="Iframe">
+                                    <input  class="botonIframe" type="button" value="Historial">
+                                    <input  class="botonIframe" type="button" value="Arrastrar y soltar">
+                                    <input  class="botonIframe" type="button" value="Audio">
+                                    <input  class="botonIframe" type="button" value="Video">
+                                    
+					
+				</div>
+					<iframe id="contenido" style='border:solid
+					black; height: 25em; width:70em'
+					src="about:blank">
+                                        </iframe><br><br>
+                                       
+                                        <input type="button" onclick="retroceder();" value="Retroceder"> <br>	
+		</body>
+	</html>

@@ -11,7 +11,7 @@ $(document).ready(function () {
     
     
      $('li:has(ul)').hover(function () {
-        // el primer parametro de stop elimina la cola de eventos, el segundo hace que finalicen los que estan en ejecucion
+        // el primer parametro de stop elimina la cola de eventos, el segundo hace que finalicen los que estan en ejecución
         $(this).children("ul").children("li").stop(true,true)
             .slideUp(1).animate({opacity: 0}, {duration: 1}); // deja al menu preparado aunque estuviera en mitad de un evento
         $(this).children("ul").children("li")

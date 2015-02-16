@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+
+var patron= new Image();  
+
+function animar(){   
+   patron.src = 'imagenes/pattern.jpg'; 
+   setInterval(dibujarForma, 100);
+} 
+
+function dibujarForma(){
+  // obtenemos el elemento canvas usando el DOM
+  var lienzo = document.getElementById('milienzo');
+ 
+  // Nos aseguramos que no se ejecute si canvas no es admitido por el navegador
+  if (lienzo.getContext){
+ 
+    // usamos getContext para usar el lienzo para dibujar
+    var ctx = lienzo.getContext('2d');
+
+    ctx.fillStyle = 'rgba(0,0,0,0.4)';   
+    ctx.strokeStyle = 'rgba(0,153,255,0.4)';   
+    ctx.save();   
+    ctx.translate(150,150); 
+
+    var time = new Date(); 
+    ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + 
+              ( (2*Math.PI)/6000)*time.getMilliseconds() );   
+    ctx.translate(0,28.5);   
+    ctx.drawImage(patron,-3.5,-3.5);   
+    ctx.restore(); 
+  
+  } else {
+    alert('necesitas un navegador que admita la API Canvas de HTML 5');
+  }
+}
+</script>
+</head>
+<body onload="animar();">
+   <canvas id="milienzo" width="400" height="400"></canvas>
+</body>
+</html>

@@ -5,6 +5,13 @@
 		<title>
 			Ejemplo de Formulario Web
 		</title>
+                <script type="text/javascript">
+                    
+                    function retroceder() {
+                        history.go(-1);
+                    }    
+                    
+                </script>
 		</head>
                 
                 <!-- Con la etiqueta 'title' muestramos su contenido al pasar por encima el ratón
@@ -13,6 +20,7 @@
 		<body>
                     <h1>Ejemplo de Formulario Web</h1><br>
                     (method="post" action="webforms.php")<br>
+                    Todo son etiquetas &lt;input&gt;<br>
 			<form method="post" action="webforms.php">
                             <table border="1" cellpadding="5">
                                 <tr>
@@ -53,16 +61,16 @@
                                 </tr>
 				<tr>
                                     <td title="Datetime" >Datetime</td>
-                                    <td><input name="datetime" type="datetime">"datetime"</td>
+                                    <td><input name="datetime" type="datetime">type="datetime"</td>
 				</tr>
 				<tr>
                                     <td title="Local Datetime">Local Datetime</td>
-                                    <td><input name="datetimelocal" type="datetime-local">"datetime-local"</td>
+                                    <td><input name="datetimelocal" type="datetime-local">type="datetime-local"</td>
                         
 				</tr>
                                 <tr>
                                     <td title="Local" >Color</td>
-                                    <td><input name="color" type="color">type="color"</td>
+                                    <td><input name="color" type="color" value="#162CBB">type="color" value="#162CBB"</td>
                                 </tr>
                                 <tr>
                                     <td title="Consulta Busqueda" >Consulta Busqueda</td>
@@ -70,6 +78,8 @@
                                 </tr>
                             </table>
                             <input type="submit" value="Enviar" title="Enviar"  >type="submit"
-			</form>
+                        </form><br><br>
+                        <input type="button" onclick="retroceder();" value="Retroceder">
+                    
 		</body>
 	</html>

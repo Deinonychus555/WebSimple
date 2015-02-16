@@ -9,7 +9,8 @@
 				function cargador()
 				{
 					iframe =
-					document.getElementById("contenido");
+					//document.getElementById("contenido");
+                                        document.getElementsByTagName("iframe")[0];
 					iframe.contentDocument.designMode = "on";
 				}
 				
@@ -28,6 +29,9 @@
 					iframe.contentDocument.execCommand
 					("createlink", false, url);
 				}
+                                function retroceder() {
+                                     history.go(-1);
+                                 } 
 				window.addEventListener("cargador", onload,
 				false);
 			
@@ -35,7 +39,7 @@
 			
 		</head>
 		<body onload="cargador()">
-				<h1> &lt;iframe&gt; Editable</h1>
+				<h1> &lt;iframe src="about:blank"&gt; Editable</h1>
 				<div>
 					<input type="button" value="Negrita" onclick=
 					"iframe.contentDocument.execCommand
@@ -52,8 +56,22 @@
 					onclick="mostrarFuente();">
 				</div>
 					<iframe id="contenido" style='border:solid
-					black; height: 300px; width: 400px'
+					black; height: 200px; width: 400px'
 					src="about:blank">
-					</iframe>
+                                        </iframe><br><br>
+                                        &lt;body onload="cargador()"&gt;<br><br>
+                                        var iframe;<br>
+                                        var iframes = document.getElementsByTagName("iframe")<br>
+                                        iframe = iframes[0];<br>
+                                        iframe.contentDocument.designMode="on";<br><br>
+                                        
+                                        window.addEventListener("cargador", onload,false);<br><hr><br><br>
+                                        
+                                          Bold: iframe.ContentDocument.execCommand('bold', false ,null)<br><br>
+                                          Italic: iframe.contentDocument.execCommand('italic', flase, null)<br><br>
+                                          Underline: iframe.contentDocument.execCommand('underline, false, null)<br><br>
+                                          Create Link: iframe.contentDocument.execCommand('createlink', false, 'nombreEnlace') <br><br>
+                                          <a href="iframe2"> iframe 2 </a><br><br> 
+                                        <input type="button" onclick="retroceder();" value="Retroceder"> <br>	
 		</body>
 	</html>

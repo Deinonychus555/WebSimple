@@ -36,13 +36,25 @@ $(function(){
      
     $("#mostrar_texto").click(function(){
         
-         document.open(); // Se abre el flujo del documento.
+        /*
+        
+         window.document.open(); // Se abre el flujo del documento.
          
-         document.write("Se ha abierto el flujo "); // Se escribe
+         window.document.write("Se ha abierto el flujo"); // Se escribe
          
-         document.close(); // Se cierra el flujo del documento.
+         window.document.close(); // Se cierra el flujo del documento.
          
          // Todo correcto :)
+         
+         */
+        
+        //NO FUNCIONA
+        
+        var etiqueta=window.document.createElement("div");
+        var contenido=window.document.createTextNode("Se ha abierto el flujo");
+        etiqueta.appenChild(contenido);
+        $("#mostrar").appendChild(etiqueta);
+   
      });
      
      
@@ -92,6 +104,11 @@ $(function(){
          }
          
          $("this , .input_number").val(number);
+     })
+     
+     
+     $(".retroceso").click(function(){
+         history.go(-1);
      })
     
     
