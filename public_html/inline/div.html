@@ -4,19 +4,26 @@
 			<title>
 				Elemento &lt;div&gt; Editable
 			</title>
-			<script type="text/javascript">
+                    
+                    
+                         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" lang="es-es">
+                        
+                         <meta name="viewport" content="width=device-width">
+			
+                         
+                         <script type="text/javascript">
 				
 				function crearEnlace()
 					{
 						var url = prompt("Escribe URL:", "http://");
-						if (url)
+						if (url);
 						document.execCommand("createlink", false, url);
 					}
 				function mostrarFuente()
 					{
 					var content = document.getElementById ("div").innerHTML;
-                    content.replace(/</g,'&lt;');
-                    content.replace(/>/g, '&gt;');
+                                        content.replace(/</g,'&lt;');
+                                        content.replace(/>/g, '&gt;');
 					alert(content);
 					}	
                                         
@@ -31,7 +38,7 @@
          
     <div>
     	<input type="button" value="Negrita"
-		onclick="document.execCommand('bold', false, null);">
+               onclick="document.execCommand('bold', false, null);">
         <input type="button" value="Italica"
 		onclick="document.execCommand ('italic', false, null);">
         <input type="button" value="Subrayado"
@@ -43,6 +50,7 @@
 	
      <div id="div" style='border:solid black; height: 200px; width: 400px' 
           contenteditable="true"></div><br><br>
+     <!-- Tiene por defecto correción autográfica-->     
           Bold: document.execCommand('bold', false ,null)<br><br>
           Italic: document.execCommand('italic', flase, null)<br><br>
           Underline: document.execCommand('underline, false, null)<br><br>

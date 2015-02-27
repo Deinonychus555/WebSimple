@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Editor de texto
+        </title>
+        <meta name="author" content="Juan Antonio Echeverrias Aranda">
+        <meta name="description" content="Ejercicio inline">
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" lang="es-es">
+        
+        <meta name="viewport" content="width=device-width">
+        <style>
+            
+            body {
+                background-color:greenyellow;
+            }
+            
+            h1 {
+                color: #0985ef;
+            }
+            
+            #contenedor {
+                background-color: white;
+                border: solid black;
+                padding: 1em;
+                overflow: auto;
+                height: 10em;
+                width: 60%;
+            }
+            
+        </style>    
+        <script type="text/javascript">
+            
+            function borrar() {
+                var contenido = document.getElementById("contenedor").innerHTML;
+                if (contenido === "Escribe aquí...") {
+                    document.getElementById("contenedor").innerHTML = "";
+                }
+                fontSize();
+                foreColor();
+            }
+            
+            function resetear() {
+                document.getElementById("contenedor").innerHTML = "";
+                document.getElementById("tamanyo_fuente").value = "";
+                document.getElementById("color_fuente").value = "";
+                document.getElementById("formato_fuente").value = "";
+            }
+
+            function crearEnlace() {
+                var url = prompt("Escribe URL:", "http://");
+                if (url);
+                document.execCommand("createlink", false, url);
+            }
+            
+            function mostrarFuente() {
+                var content = document.getElementById("contenedor").innerHTML;
+                content.replace(/</g, '&lt;');
+                content.replace(/>/g, '&gt;');
+                alert(content);
+            }
+
+            function fontSize() {
+                tamanyo = document.getElementById("tamanyo_fuente").value;
+                if (tamanyo !== "") {
+                    document.execCommand('fontSize', false, tamanyo);
+                }    
+            }
+            
+            function foreColor() {
+                color = document.getElementById("color_fuente").value;
+                if (color !== "") {
+                    document.execCommand('foreColor', false, color);
+                }    
+            }
+            
+            function formatBlock() {
+                formato = document.getElementById("formato_fuente").value;
+                document.execCommand('formatBlock', false, formato);
+            }
+
+            function retroceder() {
+                history.go(-1);
+            }
+
+            function cargarArchivo(files) {
+                var file = files[0];
+                var reader = new FileReader();
+                reader.onload = function () {
+                    // Cuando se dispara este evento, los datos están disponibles.
+                    // Los copiamos al <div> textBox de la página.
+                    var output = document.getElementById("contenedor");
+                    output.innerHTML = this.result;
+                };
+                reader.readAsText(file, "latin1");
+            }
+
+            function guardar() {
+                var localData = document.getElementById("contenedor").innerHTML;
+                localStorage["lData"] = localData;
+                alert("Texto guardado");
+            }
+
+            function recuperar() {
+                var localData = localStorage["lData"];
+                if (localData != null) {
+                    document.getElementById("contenedor").innerHTML = localData;
+                }
+            }
+
+            var contenedor;
+
+            window.onload = function () {
+                contenedor = document.getElementById("contenedor");
+                contenedor.ondragenter = ignoreDrag;
+                contenedor.ondragover = ignoreDrag;
+                contenedor.ondrop = drop;
+            }
+
+            function ignoreDrag(e) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+
+            function drop(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var data = e.dataTransfer;
+                var files = data.files;
+                cargarArchivo(files);
+            }
+            
+            function bold() {
+                document.execCommand('bold', false, null);
+            }
+            
+            function italic() {
+                document.execCommand('italic', false, null);
+            }
+            
+            function underline() {
+                document.execCommand('underline', false, null);
+            }
+            
+            function insertUnorderedList() {
+                document.execCommand('insertUnorderedList', false, null);
+            }
+            
+            function insertOrderedList() {
+                document.execCommand('insertOrderedList', false, null);
+            }
+            
+            function insertParagraph() {
+                document.execCommand('insertParagraph', false, null);
+            }
+            
+            function justifyleft() {
+                document.execCommand('justifyleft', false, null);
+            }
+            
+            function justifyright() {
+                document.execCommand('justifyright', false, null);
+            }
+            
+            function justifycenter() {
+                document.execCommand('justifycenter', false, null);
+            }
+            
+            function copy() {
+                document.execCommand('copy', false, null);
+            }
+            
+            function cut() {
+                document.execCommand('cut', false, null);
+            }
+            
+            function paste() {
+                document.execCommand('paste', false, null);
+            }
+           
+        </script>
+    </head>
+    <body>
+        <h1>Editor de texto</h1>
+        <div id="controles">
+            <input type="button" value="Negrita" onclick="bold()">
+            <input type="button" value="Italica" onclick="italic()">
+            <input type="button" value="Subrayado" onclick="underline()">
+            <input type="button" value="Crear Enlace" onclick="crearEnlace()">
+            <input type="button" value="Mostrar Fuente" onclick="mostrarFuente()">
+            <hr>
+            <input type="button" value="Viñetas" onclick="insertUnorderedList()">
+            <input type="button" value="Lista" onclick="insertOrderedList()">
+            <input type="button" value="Estilo párrafo" onclick="insertParagraph()">
+            <button onclick="justifyleft()">Izqda.</button>
+            <button onclick="justifycenter()">Centro</button>
+            <button onclick="justifyright()">Drcha.</button>
+            <input type="button" value="Copiar" onclick="copy()">
+            <input type="button" value="Cortar" onclick="cut()">
+            <input type="button" value="Pegar" onclick="paste()">
+            <select id="tamanyo_fuente" onchange="fontSize()">
+                <option value="" selected="selected">-- Fuente --</option>
+                <option value="1">Pequeña</option>
+                <option value="3.5">Media</option>
+                <option value="7">Grande</option>
+            </select>
+            <select id="color_fuente" onchange="foreColor()">
+                <option value="" class="heading" selected>Color</option>
+                <option value="red">Rojo</option>
+                <option value="blue">Azul</option>
+                <option value="green">Verde</option>
+                <option value="black">Negro</option>
+            </select>
+            <select id="formato_fuente" onchange="formatBlock(); this.selectedIndex = 0;">
+                <option value="" class="heading" selected>Formato</option>
+                <option value="<h1>">Cabecera &lt;h1&gt;</option>
+                <option value="<h2>">Título &lt;h2&gt;</option>
+                <option value="<h3>">Título &lt;h3&gt;</option>
+                <option value="<h4>">Título &lt;h4&gt;</option>
+                <option value="<h5>">Título &lt;h5&gt;</option>
+                <option value="<h6>">Título &lt;h6&gt;</option>
+                <option value="<p>">Párrafo &lt;p&gt;</option>
+                <option value="<pre>">Preformateado &lt;pre&gt;</option>
+            </select>
+            <br><br>
+            <input id="fileInput" type="file" onchange="cargarArchivo(this.files)">...Insertar archivo de texto
+            <input type="button" value="Guardar" onclick="guardar()"> 
+            <input type="button" value="Recuperar" onclick="recuperar()"> 
+        </div>
+        <hr>   
+        <br>
+        <div id="contenedor" contenteditable="true" onclick="borrar()">Escribe aquí...</div>
+        <br>
+        <input type="button" value="Resetear" onclick="resetear()">
+        <br><br>
+         <!-- Tiene por defecto correción autográfica-->     
+          Bold: document.execCommand('bold', false ,null)<br><br>
+          Italic: document.execCommand('italic', flase, null)<br><br>
+          Underline: document.execCommand('underline, false, null)<br><br>
+          Create Link: document.execCommand('createlink', false, 'nombreEnlace') <br><br>
+          Insert Unordered List: document.execCommand('insertUnorderedList', false, 'null') <br><br>
+          Insert Ordered List: document.execCommand('insertOrderedList', false, 'null') <br><br>
+          Insert Paragraph: document.execCommand('insertParagraph', false, 'null') <br><br>
+          Justify Left: document.execCommand('justifyLeft', false, 'null') <br><br>
+          Justify Right: document.execCommand('justifyRight', false, 'null') <br><br>
+          Justify Center: document.execCommand('justifyCenter', false, 'null') <br><br>
+          Font Size: document.execCommand('fontSize', false, 'size') <br><br>
+          Fore Color: document.execCommand('foreColor', false, 'color') <br><br>
+          Format Block: document.execCommand('formatBlock', false, 'format') <br><br>
+   	<input type="button" onclick="retroceder();" value="Retroceder"> <br>	
+    </body>
+</html>

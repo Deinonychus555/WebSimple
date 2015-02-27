@@ -2,6 +2,13 @@
 <html>
 <head>
   <title>Ejemplo de Arrastar y Soltar</title>
+  
+                    
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" lang="es-es">
+                        
+   <meta name="viewport" content="width=device-width">
+			
+                         
   <style type="text/css">
             #destino1, #destino2, #destino3 {
                 float: left;
@@ -43,40 +50,55 @@
             }
         </style>
   <script type="text/javascript">
+            
+            // <div draggable="true" ondragstart="return start(event)" ondragend="return end(event)">
             function start(e){
-				e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.effectAllowed = 'move';
+                // setData: Permite almacenar el identifiacdor del elemento arrastrado
                 e.dataTransfer.setData("Data", e.target.getAttribute('id'));
+                // setDragImage: indica la imagen del objeto arrastrado
                 e.dataTransfer.setDragImage(e.target, 0, 0);
                 return true;                
             }
-			
-			function enter(e){
+	
+            // <div id="destino" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)">
+            // Indica que un elemento arrastrado se puede poner sobre dicho contenedor
+            function enter(e){
                 return true;
             }
-			
-			function over(e){
-				var esarrastrable = e.dataTransfer.getData("Data");
-				var id = e.target.getAttribute('id');
-				if (id == 'destino1') 
+            
+            // <div id="destino1" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)">
+            // Indica el contenedor destino
+            function over(e){
+                // getData: nos permite saber cual es el elemnento arrastrado
+                var esarrastrable = e.dataTransfer.getData("Data");
+                // getAttribute: no spermite obtener el atributo del contenedor que lanza el evento
+		var id = e.target.getAttribute('id');
+		if (id == 'destino1') 
                     return false;
-				if ((id == 'destino2') && esarrastrable == 'arrastrable3') 
+		if ((id == 'destino2') && esarrastrable == 'arrastrable3') 
                     return false;
-				else 
+		else 
                     if (id == 'destino3' && (esarrastrable == 'arrastrable1' || esarrastrable == 'arrastrable2')) 
                         return false;
 					else 
                         return true;			
                
             }
-			
-			function drop(e){
+		
+            // <div id="destino1" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)">    
+            // Cuando se suelta un arrastrable en un contenedor
+            function drop(e){
                 var esarrastrable = e.dataTransfer.getData("Data");
-				e.target.appendChild(document.getElementById(esarrastrable));
-				e.stopPropagation();
+		e.target.appendChild(document.getElementById(esarrastrable));
+                
+               // Para que no se repita el evento constantemente: e.stopPropagation() y return flase
+		e.stopPropagation();
                 return false;
             }
-			
-			function end(e){
+		
+            // <div draggable="true" ondragstart="return start(event)" ondragend="return end(event)">
+            function end(e){
                 e.dataTransfer.clearData("Data");
                 return true
             }		
@@ -85,18 +107,16 @@
 </head>
 <body>
 <h1>Ejemplo de Arrastrar y Soltar en HTML 5</h1>
-<div id="destino1" ondragenter="return enter(event)"
- ondragover="return over(event)" ondrop="return drop(event)">
-<div id="arrastrable1" draggable="true"
- ondragstart="return start(event)" ondragend="return end(event)"> 1 </div>
-<div id="arrastrable2" draggable="true"
- ondragstart="return start(event)" ondragend="return end(event)"> 2 </div>
-<div id="arrastrable3" draggable="true"
- ondragstart="return start(event)" ondragend="return end(event)"> 3 </div>
+
+<div id="destino1" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)">
+    
+<div id="arrastrable1" draggable="true" ondragstart="return start(event)" ondragend="return end(event)"> 1 </div>
+<div id="arrastrable2" draggable="true" ondragstart="return start(event)" ondragend="return end(event)"> 2 </div>
+<div id="arrastrable3" draggable="true" ondragstart="return start(event)" ondragend="return end(event)"> 3 </div>
+
 </div>
-<div id="destino2" ondragenter="return enter(event)"
- ondragover="return over(event)" ondrop="return drop(event)"> </div>
-<div id="destino3" ondragenter="return enter(event)"
- ondragover="return over(event)" ondrop="return drop(event)"> </div>
+<div id="destino2" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"> </div>
+<div id="destino3" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"> </div>
+
 </body>
 </html>

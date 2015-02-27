@@ -13,15 +13,17 @@ function dibujarForma(){
     var ctx = lienzo.getContext('2d');
      // incluimos imagen y dibujamos formas
     var img = new Image();
-    img.src = 'imagenes/backdrop.jpg';
+    img.src = 'images/fondo.jpeg';
 	img.onload = function(){
-       ctx.drawImage(img,0,0);
-       ctx.beginPath();
-       ctx.moveTo(30,96);
-       ctx.lineTo(70,66);
-       ctx.lineTo(103,76);
-       ctx.lineTo(170,15);	   
-       ctx.stroke();
+            
+            ctx.drawImage(img,0,0);
+            ctx.beginPath();
+            ctx.moveTo(30,96);
+            ctx.lineTo(70,66);
+            ctx.lineTo(103,76);
+            ctx.lineTo(170,15);	   
+            ctx.stroke();
+       
    }
 
   } else {
